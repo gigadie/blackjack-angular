@@ -1,7 +1,8 @@
 <!doctype html>
-<html class="no-js" ng-app="BlackJack">
+<html class="no-js" ng-app="CardGame">
 	<head>
-		<title>Black Jack</title>
+
+		<title>Card Game: Black Jack</title>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,7 +10,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,greek,vietnamese,cyrillic' rel='stylesheet' type='text/css'>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<!-- angular js main code -->
+		<!-- AngularJS main code -->
 		<script src="./js/angularjs.all.js?<%= buildLabel %>"></script>
 
 		<!-- AngularJS css style -->
@@ -17,6 +18,8 @@
 
 	</head>
 	<body ng-controller="MainController as body">
-		<div ui-view></div>
+		<div ui-view>
+			<div ng-click="body.goto('blackjack')">Play BlackJack</div>
+		</div>
 	</body>
 </html>

@@ -31,5 +31,4 @@ This will watch your files for changes and continuously rebuild application JS f
 The other useful tasks are:
 
     $ gulp test         // for a single unit tests run
-    $ gulp test:debug   // for unit tests continuous running and debug in Chrome
     $ gulp tdd          // for a watcher on /js/main.js and all unit tests
