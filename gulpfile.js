@@ -48,7 +48,7 @@ gulp.task('clean', function () {
 gulp.task('clean:css', function () {
 	return del([
 		'./dist/css/**/*',
-		'./dist/font/**/*'
+		'./dist/fonts/**/*'
 	]);
 });
 // Clean AngularJS
@@ -119,7 +119,7 @@ gulp.task('build:css', function() {
 	gulp.src(['./node_modules/mdi/fonts/*', './node_modules/mdi/fonts/**/*'], {
 			base: './node_modules/mdi/fonts/'
 		})
-		.pipe(gulp.dest('./dist/font/'));
+		.pipe(gulp.dest('./dist/fonts/'));
 
 	// Process SASS stylesheets
 	return gulp.src('./css/main.scss')
@@ -155,7 +155,8 @@ gulp.task('build:del:tempfiles', function() {
 // build for development
 gulp.task('build:dev', function() {
 	runSequence(
-		['clean', 'config:dev', 'build:res'],
+		['clean', 'config:dev'],
+		['build:res'],
 		['build:css', 'lint', 'build:js', 'build:html', 'build:indexfile'],
 		['build:del:tempfiles']
 	);
@@ -164,7 +165,8 @@ gulp.task('build:dev', function() {
 //  build for production
 gulp.task('build:production', function() {
 	runSequence(
-		['clean', 'config:production', 'build:res'],
+		['clean', 'config:production'],
+		['build:res'],
 		['build:css', 'lint', 'build:js', 'build:html', 'build:indexfile'],
 		['build:del:tempfiles']
 	);

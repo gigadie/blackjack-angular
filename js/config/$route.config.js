@@ -1,8 +1,14 @@
 'use strict';
 
-config.$inject = ['$urlRouterProvider'];
+config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-function config($urlRouterProvider) {
+function config($stateProvider, $urlRouterProvider) {
+	$stateProvider.
+		state('initial', {
+			url: '/',
+			templateUrl: './js/main.html'
+		});
+
 	$urlRouterProvider.otherwise('/');
 }
 

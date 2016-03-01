@@ -1,0 +1,48 @@
+<div class="blackjack">
+	<div class="blackjack-board"></div>
+	<div class="actions">
+		<button ng-click="ctrl.goto('initial')" class="btn back"><i class="mdi mdi-arrow-left-bold"></i> Back</button>
+
+		<button class="btn stick" ng-if="ctrl.started" ng-disabled="!ctrl.playerturn"><i class="mdi mdi-pause"></i> Stick</button>
+		<button class="btn hit" ng-if="ctrl.started" ng-disabled="!ctrl.playerturn"><i class="mdi mdi-library-plus"></i> Hit</button>
+	</div>
+	<div class="init-game-mask" ng-if="!ctrl.started"></div>
+	<md-card class="init-game" ng-if="!ctrl.started">
+		<md-card-content>
+			<h2>Players</h2>
+			<div>
+				<h3>Add a player</h3>
+				<div ng-if="ctrl.canAddMorePlayers()">
+					<md-input-container class="new-player">
+						<input type="text" ng-model="ctrl.newPlayerName" required placeholder="Player Name">
+					</md-input-container>
+					<md-button 	class="new-player-button"
+								ng-click="ctrl.addPlayer()"
+								
+								ng-disabled="!ctrl.newPlayerName">
+						<i class="mdi mdi-plus"></i>
+					</md-button>
+				</div>
+				<div ng-if="!ctrl.canAddMorePlayers()">You added the maximum number of players</div>
+			</div>
+			<div>
+				<h3>Player list</h3>
+				<div class="player-list">
+					<div ng-if="ctrl.players.length > 0" ng-repeat="player in ctrl.players">
+						<md-button ng-click="ctrl.removePlayer(player)">
+							<i class="mdi mdi-delete"></i>
+						</md-button>
+						<span>{{player.name}}</span>
+					</div>
+					<div ng-if="ctrl.players.length === 0" class="mute">None</div>
+				</div>
+			</div>
+		</md-card-content>
+		<md-card-footer>
+			<md-card-actions layout="row" layout-align="end center">
+				<md-button ng-click="ctrl.goto('initial')"><i class="mdi mdi-arrow-left-bold"></i> Back</md-button>
+				<md-button ng-click="ctrl.start()" ng-if="!ctrl.started" ng-disabled="ctrl.players.length === 0"><i class="mdi mdi-arrow-right-bold"></i> Start</md-button>
+			</md-card-actions>
+		</md-card-footer>
+	</md-card>
+</div>

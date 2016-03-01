@@ -1,24 +1,29 @@
 'use strict';
 
 var angular = require('angular');
-var cards = require('../services/cards.factory');
+var playerService = require('../services/player.factory');
+var cardService = require('../services/card.factory');
+var blackjackBoard = require('./blackjack.board.directive');
 
 angular.module('BlackJack', [])
-	.constant('gameConfig', {
-		partialPath: './js/blackjack/'
+	.constant('BlackJackConfig', {
+		partialPath: './js/blackjack/',
+		maxPlayers: 7
 	})
 	.config(config)
-	.factory('cards', cards);
+	.factory('playerService', playerService)
+	.factory('cardService', cardService)
+	.directive('blackjackBoard', blackjackBoard);
 
 config.$inject = [
 	'$stateProvider',
-	'gameConfig'
+	'BlackJackConfig'
 ];
 
-function config($stateProvider, gameConfig) {
+function config($stateProvider, BlackJackConfig) {
 	$stateProvider.
 		state('blackjack', {
 			url: '/blackjack',
-			templateUrl: gameConfig.partialPath.concat('main.html')
+			templateUrl: BlackJackConfig.partialPath.concat('main.html')
 		});
 }
