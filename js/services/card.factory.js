@@ -28,7 +28,7 @@ function CardService() {
 
 		deck.suits.forEach(function(suit) {
 			deck.ranks.forEach(function(rank) {
-				var card = new Card(rank, suit);
+				var card = new Card(rank, suit, this.rankValue[rank]);
 				deck.cards.push(card);
 			});
 		});
@@ -39,6 +39,22 @@ function CardService() {
 	Deck.prototype.suits = ['Club', 'Diamond', 'Spade', 'Heart'];
 
 	Deck.prototype.ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+
+	Deck.prototype.rankValue = {
+		'A': 11,
+		'2': 2,
+		'3': 3,
+		'4': 4,
+		'5': 5,
+		'6': 6,
+		'7': 7,
+		'8': 8,
+		'9': 9,
+		'10': 10,
+		'J': 10,
+		'Q': 10,
+		'K': 10
+	};
 
 	Deck.prototype.deal = function() {
 		var card = this.cards.shift();
@@ -52,7 +68,7 @@ function CardService() {
 
 	Deck.prototype.shuffle = function() {
 		/**
-		* Knuth Shuffle Implementation
+		* Using Knuth Shuffle Implementation
 		* https://github.com/coolaj86/knuth-shuffle
 		*/
 		var currentIndex = this.cards.length;
@@ -80,9 +96,10 @@ function CardService() {
 
 	// Card Object
 
-	function Card(rank, suit) {
+	function Card(rank, suit, value) {
 		this.rank = rank;
 		this.suit = suit;
+		this.value = value;
 	}
 
 	Card.prototype.name = function() {
