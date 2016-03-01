@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = window._ || require('lodash');
+
 BlackJackBoard.$inject = [
 	'BlackJackConfig'
 ];
@@ -32,6 +34,7 @@ function BlackJackBoard(BlackJackConfig) {
 		vm.goto = goto;
 		vm.start = start;
 		vm.addPlayer = addPlayer;
+		vm.removePlayer = removePlayer;
 		vm.canAddMorePlayers = canAddMorePlayers;
 
 		return init();
@@ -55,6 +58,10 @@ function BlackJackBoard(BlackJackConfig) {
 		function addPlayer() {
 			vm.players.push(playerService.newPlayer(vm.newPlayerName, 0));
 			vm.newPlayerName = null;
+		}
+
+		function removePlayer(player) {
+			vm.players = _.without(vm.players, player);
 		}
 
 		function canAddMorePlayers() {
