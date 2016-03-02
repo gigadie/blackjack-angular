@@ -12,13 +12,6 @@ function CardService() {
 		Card: Card
 	};
 
-	return service;
-
-	function newDeck() {
-		var deck = new Deck();
-		return deck;
-	}
-
 	// Deck Object
 
 	function Deck() {
@@ -28,7 +21,7 @@ function CardService() {
 
 		deck.suits.forEach(function(suit) {
 			deck.ranks.forEach(function(rank) {
-				var card = new Card(rank, suit, this.rankValue[rank]);
+				var card = new Card(rank, suit, deck.rankValue[rank]);
 				deck.cards.push(card);
 			});
 		});
@@ -67,10 +60,10 @@ function CardService() {
 	};
 
 	Deck.prototype.shuffle = function() {
-		/**
-		* Using Knuth Shuffle Implementation
-		* https://github.com/coolaj86/knuth-shuffle
-		*/
+		/*
+		 * Using Knuth Shuffle Implementation
+		 * https://github.com/coolaj86/knuth-shuffle
+		 */
 		var currentIndex = this.cards.length;
 		var temporaryValue, randomIndex;
 
@@ -105,6 +98,13 @@ function CardService() {
 	Card.prototype.name = function() {
 		return this.rank + ' ' + this.suit;
 	};
+
+	function newDeck() {
+		var deck = new Deck();
+		return deck;
+	}
+
+	return service;
 }
 
 module.exports = CardService;

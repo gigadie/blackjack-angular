@@ -11,14 +11,7 @@ function Player() {
 		Player: Player
 	};
 
-	return service;
-
-	function newPlayer(playerName, playerScore) {
-		var player = new Player(playerName, playerScore);
-		return player;
-	}
-
-	// Deck Object
+	// Player Object
 
 	function Player(playerName, playerScore) {
 		this.score = playerScore;
@@ -37,6 +30,13 @@ function Player() {
 	Player.prototype.resetScore = function() {
 		this.score = this.initialScore;
 	};
+
+	function newPlayer(playerName, playerScore) {
+		var player = new Player(playerName, playerScore);
+		return player;
+	}
+
+	return service;
 }
 
 module.exports = Player;
