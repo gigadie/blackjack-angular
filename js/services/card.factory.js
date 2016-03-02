@@ -99,6 +99,10 @@ function CardService() {
 		return this.rank + ' ' + this.suit;
 	};
 
+	Card.prototype.class = function() {
+		return this.suit + '-' + this.rank;
+	};
+
 	function newDeck() {
 		var deck = new Deck();
 		return deck;

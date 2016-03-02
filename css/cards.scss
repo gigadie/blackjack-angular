@@ -1,0 +1,84 @@
+$club-top: -10px;
+$diamond-top: -235px;
+$spade-top: -160px;
+$heart-top: -85px;
+
+$rank-A: -21px;
+$rank-2: -73px;
+$rank-3: -125px;
+$rank-4: -177px;
+$rank-5: -229px;
+$rank-6: -281px;
+$rank-7: -334px;
+$rank-8: -386px;
+$rank-9: -483px;
+$rank-10: -490px;
+$rank-J: -543px;
+$rank-Q: -595px;
+$rank-K: -648px;
+
+.card {
+	width: 53px;
+	height: 75px;
+
+	background: #fff url(/img/cards.png) no-repeat;
+	background-size: 1401% 535%;
+	border: 1px solid #D1D0CE;
+	border-radius: 2px;
+
+	&.Club-A { background-position: $rank-A $club-top; }
+	&.Club-2 { background-position: $rank-2 $club-top; }
+	&.Club-3 { background-position: $rank-3 $club-top; }
+	&.Club-4 { background-position: $rank-4 $club-top; }
+	&.Club-5 { background-position: $rank-5 $club-top; }
+	&.Club-6 { background-position: $rank-6 $club-top; }
+	&.Club-7 { background-position: $rank-7 $club-top; }
+	&.Club-8 { background-position: $rank-8 $club-top; }
+	&.Club-9 { background-position: $rank-9 $club-top; }
+	&.Club-10 { background-position: $rank-10 $club-top; }
+	&.Club-J { background-position: $rank-J $club-top; }
+	&.Club-Q { background-position: $rank-Q $club-top; }
+	&.Club-K { background-position: $rank-K $club-top; }
+
+	&.Diamond-A { background-position: $rank-A $diamond-top; }
+	&.Diamond-2 { background-position: $rank-2 $diamond-top; }
+	&.Diamond-3 { background-position: $rank-3 $diamond-top; }
+	&.Diamond-4 { background-position: $rank-4 $diamond-top; }
+	&.Diamond-5 { background-position: $rank-5 $diamond-top; }
+	&.Diamond-6 { background-position: $rank-6 $diamond-top; }
+	&.Diamond-7 { background-position: $rank-7 $diamond-top; }
+	&.Diamond-8 { background-position: $rank-8 $diamond-top; }
+	&.Diamond-9 { background-position: $rank-9 $diamond-top; }
+	&.Diamond-10 { background-position: $rank-10 $diamond-top; }
+	&.Diamond-J { background-position: $rank-J $diamond-top; }
+	&.Diamond-Q { background-position: $rank-Q $diamond-top; }
+	&.Diamond-K { background-position: $rank-K $diamond-top; }
+
+	&.Spade-A { background-position: $rank-A $spade-top; }
+	&.Spade-2 { background-position: $rank-2 $spade-top; }
+	&.Spade-3 { background-position: $rank-3 $spade-top; }
+	&.Spade-4 { background-position: $rank-4 $spade-top; }
+	&.Spade-5 { background-position: $rank-5 $spade-top; }
+	&.Spade-6 { background-position: $rank-6 $spade-top; }
+	&.Spade-7 { background-position: $rank-7 $spade-top; }
+	&.Spade-8 { background-position: $rank-8 $spade-top; }
+	&.Spade-9 { background-position: $rank-9 $spade-top; }
+	&.Spade-10 { background-position: $rank-10 $spade-top; }
+	&.Spade-J { background-position: $rank-J $spade-top; }
+	&.Spade-Q { background-position: $rank-Q $spade-top; }
+	&.Spade-K { background-position: $rank-K $spade-top; }
+
+	&.Heart-A { background-position: $rank-A $heart-top; }
+	&.Heart-2 { background-position: $rank-2 $heart-top; }
+	&.Heart-3 { background-position: $rank-3 $heart-top; }
+	&.Heart-4 { background-position: $rank-4 $heart-top; }
+	&.Heart-5 { background-position: $rank-5 $heart-top; }
+	&.Heart-6 { background-position: $rank-6 $heart-top; }
+	&.Heart-7 { background-position: $rank-7 $heart-top; }
+	&.Heart-8 { background-position: $rank-8 $heart-top; }
+	&.Heart-9 { background-position: $rank-9 $heart-top; }
+	&.Heart-10 { background-position: $rank-10 $heart-top; }
+	&.Heart-J { background-position: $rank-J $heart-top; }
+	&.Heart-Q { background-position: $rank-Q $heart-top; }
+	&.Heart-K { background-position: $rank-K $heart-top; }
+}

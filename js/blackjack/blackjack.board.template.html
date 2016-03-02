@@ -2,7 +2,7 @@
 	<div class="blackjack-board">
 		<div 	class="board-player player {{player === ctrl.currentPlayer ? 'current-player' : ''}} {{player.blackjack ? 'pl-blackjack' : ''}}"
 				ng-repeat="player in ctrl.players">
-			<div>{{player.name}} - score: {{player.score}}</div>
+			<div>{{::player.name}} - score: {{player.score}}</div>
 			<div>
 				<span ng-if="player.blackjack">BlackJack!!</span>
 				<span ng-if="player.busted">Busted!!</span>
@@ -11,22 +11,18 @@
 				<span ng-if="!player.busted && !player.wins && !player.tie && ctrl.ended">Lost!!</span>
 			</div>
 			<div class="player-cards">
-				<div ng-repeat="card in player.cards">
-					{{card.name()}}
-				</div>
+				<div ng-repeat="card in player.cards" class="card {{::card.class()}}"></div>
 			</div>
 		</div>
 		<div 	class="board-player dealer {{ctrl.dealer === ctrl.currentPlayer ? 'current-player' : ''}} {{player.blackjack ? 'pl-blackjack' : ''}}"
 				ng-if="ctrl.dealer">
-			<div>{{ctrl.dealer.name}} - score: {{ctrl.dealer.score}}</div>
+			<div>{{::ctrl.dealer.name}} - score: {{ctrl.dealer.score}}</div>
 			<div>
 				<span ng-if="ctrl.dealer.blackjack">BlackJack!!</span>
 				<span ng-if="ctrl.dealer.busted">Busted!!</span>
 			</div>
 			<div class="player-cards">
-				<div ng-repeat="card in ctrl.dealer.cards">
-					{{card.name()}}
-				</div>
+				<div ng-repeat="card in ctrl.dealer.cards" class="card {{::card.class()}}"></div>
 			</div>
 		</div>
 	</div>
@@ -64,7 +60,6 @@
 					</md-input-container>
 					<md-button 	class="new-player-button"
 								ng-click="ctrl.addPlayer()"
-								
 								ng-disabled="!ctrl.newPlayerName">
 						<i class="mdi mdi-plus"></i>
 					</md-button>
@@ -78,7 +73,7 @@
 						<md-button ng-click="ctrl.removePlayer(player)">
 							<i class="mdi mdi-delete"></i>
 						</md-button>
-						<span>{{player.name}}</span>
+						<span>{{::player.name}}</span>
 					</div>
 					<div ng-if="ctrl.players.length === 0" class="mute">None</div>
 				</div>
