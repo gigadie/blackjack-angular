@@ -40,6 +40,7 @@ function BlackJackBoard(BlackJackConfig) {
 		vm.goto = goto;
 		vm.start = start;
 		vm.end = end;
+		vm.restart = restart;
 		vm.addPlayer = addPlayer;
 		vm.removePlayer = removePlayer;
 		vm.canAddMorePlayers = canAddMorePlayers;
@@ -88,6 +89,19 @@ function BlackJackBoard(BlackJackConfig) {
 
 		function end() {
 			vm.ended = true;
+		}
+
+		function restart() {
+			vm.started = null;
+			vm.ended = null;
+			vm.playerturn = null;
+			vm.newPlayerName = null;
+			vm.players = [];
+			vm.losers = [];
+			vm.dealer = null;
+			vm.deck = null;
+
+			vm.init();
 		}
 
 		function addPlayer() {

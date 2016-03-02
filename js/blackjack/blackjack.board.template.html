@@ -32,16 +32,21 @@
 			<i class="mdi mdi-arrow-left-bold"></i> Back
 		</button>
 		<button class="btn stick"
-				ng-if="ctrl.started"
+				ng-if="ctrl.started && !ctrl.ended"
 				ng-disabled="!ctrl.canPlay()"
 				ng-click="ctrl.stick(ctrl.currentPlayer)">
 			<i class="mdi mdi-pause"></i> Stick
 		</button>
 		<button class="btn hit"
-				ng-if="ctrl.started"
+				ng-if="ctrl.started && !ctrl.ended"
 				ng-disabled="!ctrl.canPlay()"
 				ng-click="ctrl.hit(ctrl.currentPlayer)">
 			<i class="mdi mdi-library-plus"></i> Hit
+		</button>
+		<button class="btn restart"
+				ng-if="ctrl.ended"
+				ng-click="ctrl.restart()">
+			<i class="mdi mdi-refresh"></i> Restart
 		</button>
 	</div>
 	<div class="init-game-mask" ng-if="!ctrl.started"></div>
